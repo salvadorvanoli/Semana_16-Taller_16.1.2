@@ -36,14 +36,22 @@ app.post("/people", (req, res) => {
 
 app.put("/people/:index", (req, res) => {
   /* COMPLETA EL CÓDIGO NECESARIO:
-     Para que se pueda actualizar el objeto asociado al índice indicado en la URL 
-   */
+    Para que se pueda actualizar el objeto asociado al índice indicado en la URL 
+  */
+
+  people.splice(req.params.index, 1, req.body); // Reemplazo el elemento pasado por parámetro por el nuevo introducido en el body
+
+  res.json(req.body); // Muestro en pantalla el nuevo objeto en formato json
 });
 
 app.delete("/people/:index", (req, res) => {
   /* COMPLETA EL CÓDIGO NECESARIO:
-     Para que se pueda eliminar el objeto asociado al índice indicado en la URL 
-   */
+    Para que se pueda eliminar el objeto asociado al índice indicado en la URL 
+  */
+
+  res.json(people[req.params.index]); // Muestro en pantalla el objeto que va a ser eliminado
+
+  people.splice(req.params.index, 1); // Elimino el elemento del array
 });
 
 // Esta línea inicia el servidor para que escuche peticiones en el puerto indicado
