@@ -39,7 +39,7 @@ app.put("/people/:index", (req, res) => {
     Para que se pueda actualizar el objeto asociado al índice indicado en la URL 
   */
 
-  people.splice(req.params.index, 1, req.body); // Reemplazo el elemento pasado por parámetro por el nuevo introducido en el body
+  people[req.params.index] = req.body; // Reemplazo el elemento pasado por parámetro por el nuevo introducido en el body
 
   res.json(req.body); // Muestro en pantalla el nuevo objeto en formato json
 });
